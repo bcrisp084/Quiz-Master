@@ -1,0 +1,29 @@
+body {
+  background: url(./img/labyrinth.jpg);
+  background-size: 100%;
+}
+
+.title {
+  font-size: 50px;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  text-align: center;
+  background: linear-gradient(
+    to bottom right,
+    rgb(37, 37, 63),
+    rgb(100, 98, 98)
+  );
+}
+
+.container {
+  height: 500px;
+  border: solid;
+  opacity: 0.97777;
+  border-color: rgb(0, 0, 0);
+  background: linear-gradient(
+    to bottom right,
+    rgb(36, 36, 54),
+    rgb(75, 72, 72)
+  );
+}
