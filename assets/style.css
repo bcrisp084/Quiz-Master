@@ -27,3 +27,24 @@ body {
     rgb(75, 72, 72)
   );
 }
+
+.start {
+  text-align: center;
+  margin-top: 200px;
+  line-height: 50px;
+  width: 100px;
+}
+
+#questionContainer {
+  text-align: center;
+  color: white;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+  font-size: xx-large;
+
+
+}
+
+.hide {
+  display: none;
+}
