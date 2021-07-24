@@ -1,15 +1,33 @@
 const startBtn = document.querySelector('#start')
-const questionContainer = document.querySelector('#iniatialContainer')
+const questionContainer = document.querySelector('.question-container')
+const startContainer = document.querySelector('.start-container')
+const timer = document.querySelector(".timer")
+let secondsLeft = 60;
+let timeInterval;
 
 
 startBtn.addEventListener("click", startGame)
 
 function startGame() {
     startBtn.classList.add('hide');
+    startContainer.classList.add('hide')
+    questionContainer.classList.remove('hide')
+    startTimer()
+}
+
+function startTimer() {
+    timerInterval = setInterval(function () {
+        secondsLeft--;
+        timer.textContent = secondsLeft;
+        if (secondsLeft <= 0) {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
+}
+
+function loadQuestions() {
 
 }
-console.log(startBtn)
-
 
 const quizQuestion = [
     {

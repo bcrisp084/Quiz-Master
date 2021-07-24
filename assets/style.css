@@ -30,11 +30,21 @@ body {
   );
 }
 
-.start {
-  text-align: center;
-  margin-top: 200px;
-  line-height: 50px;
-  width: 100px;
+#start {
+  margin-left: 45%;
+  padding: 10px;
+}
+
+.timer {
+  margin: auto;
+  width: 3%;
+  border: solid 4px rgb(67, 38, 71);
+  background-color: rgb(222, 222, 223);
+  font-size: xxx-large;
+}
+
+.intro{
+  font-size: x-large;
 }
 
 .hide {
