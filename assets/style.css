@@ -17,13 +17,15 @@ body {
 }
 
 .container {
-  height: 500px;
-  border: solid;
-  opacity: 0.97777;
-  border-color: rgb(0, 0, 0);
+  margin: auto;
+  padding: 10px;
+  height: 300px;
+  width: 50%;
+  margin-top: 10%;
+  border: solid 5px rgb(67, 38, 71);
   background: linear-gradient(
     to bottom right,
-    rgb(36, 36, 54),
+    rgb(253, 253, 253),
     rgb(75, 72, 72)
   );
 }
@@ -33,16 +35,6 @@ body {
   margin-top: 200px;
   line-height: 50px;
   width: 100px;
-}
-
-#questionContainer {
-  text-align: center;
-  color: white;
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: rgb(0, 0, 0);
-  font-size: xx-large;
-
-
 }
 
 .hide {
