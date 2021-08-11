@@ -24,7 +24,7 @@ function startTimer() {
     timerInterval = setInterval(function () {
         secondsLeft--;
         timer.textContent = secondsLeft;
-        if (secondsLeft <= 0) {
+        if (secondsLeft === 0) {
             clearInterval(timerInterval);
         }
     }, 1000);
