@@ -1,10 +1,12 @@
 const startBtn = document.querySelector('#start')
 const questionContainer = document.querySelector('.question-container')
 const startContainer = document.querySelector('.start-container')
+const enterInitials = document.querySelector('.enterInitials')
 const timer = document.querySelector(".timer")
 let secondsLeft = 60;
 let timeInterval;
 let currentIndex;
+let score;
 
 
 startBtn.addEventListener("click", startGame)
@@ -29,30 +31,38 @@ function startTimer() {
 }
 
 function loadQuestions() {
-    document.querySelector(".question").textContent = quizQuestion[currentIndex].question;
-    document.querySelector("#choiceA").textContent = quizQuestion[currentIndex].answers[0];
-    document.querySelector("#choiceB").textContent = quizQuestion[currentIndex].answers[1];
-    document.querySelector("#choiceC").textContent = quizQuestion[currentIndex].answers[2];
-    document.querySelector("#choiceD").textContent = quizQuestion[currentIndex].answers[3];
+    document.querySelector(".question").textContent = quizQuestion[currentIndex]?.question;
+    document.querySelector("#choiceA").textContent = quizQuestion[currentIndex]?.answers[0];
+    document.querySelector("#choiceB").textContent = quizQuestion[currentIndex]?.answers[1];
+    document.querySelector("#choiceC").textContent = quizQuestion[currentIndex]?.answers[2];
+    document.querySelector("#choiceD").textContent = quizQuestion[currentIndex]?.answers[3];
+    currentIndex++;
+    gameOver()
+
 
 }
 
 var answerBtns = document.querySelectorAll(".btn")
 for (var i = 0; i < answerBtns.length; i++) {
-    answerBtns[i].addEventListener("click", checkAnswer);
+    answerBtns[i].addEventListener("click", loadQuestions);
 }
-//Validating answers and checks quiz progress
-function checkAnswer() {
-    if (this.textContent !== quizQuestion[currentIndex].answers) {
-        secondsLeft -= 5;
+
+function gameOver() {
+    if (currentIndex > quizQuestion.length) {
+        clearInterval(timerInterval)
+        score = timer.textContent;
+        questionContainer.classList.add('hide')
+
+        // enterInitials.classList.remove("hide")
+        // enterInitials.textContent = "Game Over. Your score is " + score;
+        const gameEnded = confirm("Game Over. Your score is " + score)
+        if (gameEnded) {
+            startContainer.classList.remove("hide")
+            startBtn.classList.remove("hide")
+
+        }
     }
-    currentIndex++;
-    if (currentIndex === quizQuestion.length) {
-        questionContainer.style.display = 'none';
-        enterInitials.style.display = "block";
-        questionContainer.text = "Game Over";
-    }
-    loadQuestions();
+    console.log(score)
 }
 
 const quizQuestion = [
@@ -97,4 +107,3 @@ const quizQuestion = [
         correctAnswer: "A promise",
     },
 ]
-
