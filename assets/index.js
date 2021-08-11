@@ -52,6 +52,7 @@ function gameOver() {
         clearInterval(timerInterval)
         score = timer.textContent;
         questionContainer.classList.add('hide')
+        window.localStorage.setItem("score", JSON.stringify(score))
 
         // enterInitials.classList.remove("hide")
         // enterInitials.textContent = "Game Over. Your score is " + score;
