@@ -43,60 +43,58 @@ for (var i = 0; i < answerBtns.length; i++) {
 }
 //Validating answers and checks quiz progress
 function checkAnswer() {
-    if (this.textContent === quizQuestion[currentIndex].answers) {
-        secondsLeft += 15;
-    }
-    else {
-        secondsLeft -= 15;
+    if (this.textContent !== quizQuestion[currentIndex].answers) {
+        secondsLeft -= 5;
     }
     currentIndex++;
     if (currentIndex === quizQuestion.length) {
         questionContainer.style.display = 'none';
         enterInitials.style.display = "block";
+        questionContainer.text = "Game Over";
     }
     loadQuestions();
 }
 
 const quizQuestion = [
     {
-        question: 'How many licks does it take to get to the center of a tootsie pop',
-        answers: ["10", "14", "99", "477"],
-        correctAnswer: '477',
+        question: "What geometric shape is used in MMA sports?",
+        answers: ["pentagon", "hexagon", "square", "octagon"],
+        correctAnswer: "octagon",
     },
     {
-        question: '',
-        answers: [],
-        correctAnswer: '',
+        question: "what is Cynophobia?",
+        answers: ["fear of heights", "fear of salt", "fear of dogs", "fear of cars"],
+        correctAnswer: "fear of dogs",
     },
     {
-        question: '',
-        answers: [],
-        correctAnswer: '',
+        question: "Which animal can be seen of a Porsche logo?",
+        answers: ["lion", "Elephant", "Horse", "Cheetah"],
+        correctAnswer: "Horse",
     },
     {
-        question: '',
-        answers: [],
-        correctAnswer: '',
+        question: "What is the name of Batman's sidekick?",
+        answers: ["Robin", "Reggie", "Larry", "Oscar"],
+        correctAnswer: "Robin",
     },
     {
-        question: '',
-        answers: [],
-        correctAnswer: '',
+        question: "What was the first soft Drink in space?",
+        answers: ["Pepsi", "Mountain Dew", "Coca Cola", "Sprite"],
+        correctAnswer: "Coca Cola",
     },
     {
-        question: '',
-        answers: [],
-        correctAnswer: '',
+        question: "Which is the only edible food that never goes bad?",
+        answers: ["Jello", "Honey", "Twinkies", "Marshmallows"],
+        correctAnswer: "Honey",
     },
     {
-        question: '',
-        answers: [],
-        correctAnswer: '',
+        question: "What was the first toy to be advertised on TV?",
+        answers: ["GI Joe", "Cabbage patch kids", "Alf", "Mr Potato Head"],
+        correctAnswer: "Mr Potato Head",
     },
     {
-        question: '',
-        answers: [],
-        correctAnswer: '',
+        question: "What can be broken but is never held?",
+        answers: ["A heart", "A promise", "A dance", "Glass"],
+        correctAnswer: "A promise",
     },
 ]
 
