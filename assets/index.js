@@ -61,6 +61,8 @@ function gameOver() {
         if (gameEnded) {
             startContainer.classList.remove("hide")
             startBtn.classList.remove("hide")
+            timer.textContent = "60";
+            secondsLeft = 60;
         }
     }
     console.log(score)
