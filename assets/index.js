@@ -25,6 +25,7 @@ function startTimer() {
         secondsLeft--;
         timer.textContent = secondsLeft;
         if (secondsLeft === 0) {
+            timer.textContent = "";
             clearInterval(timerInterval);
         }
     }, 1000);
@@ -60,7 +61,6 @@ function gameOver() {
         if (gameEnded) {
             startContainer.classList.remove("hide")
             startBtn.classList.remove("hide")
-
         }
     }
     console.log(score)
