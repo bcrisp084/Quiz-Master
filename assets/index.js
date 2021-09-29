@@ -3,10 +3,12 @@ const questionContainer = document.querySelector('.question-container')
 const startContainer = document.querySelector('.start-container')
 const enterInitials = document.querySelector('.enterInitials')
 const timer = document.querySelector(".timer")
+const header = document.querySelector('.header')
 let secondsLeft = 60;
 let timeInterval;
 let currentIndex;
 let score;
+
 
 
 startBtn.addEventListener("click", startGame)
@@ -15,6 +17,8 @@ function startGame() {
     startBtn.classList.add('hide');
     startContainer.classList.add('hide')
     questionContainer.classList.remove('hide');
+    header.classList.add('hide')
+    timer.classList.remove('hide')
     currentIndex = 0;
     startTimer();
     loadQuestions();
@@ -25,7 +29,7 @@ function startTimer() {
         secondsLeft--;
         timer.textContent = secondsLeft;
         if (secondsLeft === 0) {
-            timer.textContent = "";
+            timer.textContent = 0;
             clearInterval(timerInterval);
         }
     }, 1000);
@@ -37,26 +41,30 @@ function loadQuestions() {
     document.querySelector("#choiceB").textContent = quizQuestion[currentIndex]?.answers[1];
     document.querySelector("#choiceC").textContent = quizQuestion[currentIndex]?.answers[2];
     document.querySelector("#choiceD").textContent = quizQuestion[currentIndex]?.answers[3];
+    var answerBtns = document.querySelectorAll(".btn")
+    for (var i = 0; i < answerBtns.length; i++) {
+        answerBtns[i].addEventListener("click", loadQuestions);
+    }
     currentIndex++;
     gameOver()
-
-
 }
 
-var answerBtns = document.querySelectorAll(".btn")
-for (var i = 0; i < answerBtns.length; i++) {
-    answerBtns[i].addEventListener("click", loadQuestions);
-}
+var btnGrid = document.querySelector(".btn-grid")
+btnGrid.addEventListener("click", function (event) {
+    console.log(event)
+    console.log(event.target)
+    console.log(event.target.id)
+})
+
+
 
 function gameOver() {
     if (currentIndex > quizQuestion.length) {
         clearInterval(timerInterval)
         score = timer.textContent;
+        secondsLeft = 0;
         questionContainer.classList.add('hide')
         window.localStorage.setItem("score", JSON.stringify(score))
-
-        // enterInitials.classList.remove("hide")
-        // enterInitials.textContent = "Game Over. Your score is " + score;
         const gameEnded = confirm("Game Over. Your score is " + score)
         if (gameEnded) {
             startContainer.classList.remove("hide")
@@ -65,7 +73,6 @@ function gameOver() {
             secondsLeft = 60;
         }
     }
-    console.log(score)
 }
 
 const quizQuestion = [
@@ -110,3 +117,4 @@ const quizQuestion = [
         correctAnswer: "A promise",
     },
 ]
+

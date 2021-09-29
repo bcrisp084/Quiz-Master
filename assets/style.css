@@ -1,6 +1,23 @@
 body {
-  background: url(./img/abstract.jpg);
-  background-size: 100%;
+  background-color: rgb(0, 0, 0);
+}
+.header,
+.timer {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  font-size: 50px;
+  text-align: center;
+  color: #2d2f2f;
+  text-shadow: 0 0 7px rgb(255, 255, 255), 0 0 10px #fff, 0 0 21px #fff,
+    0 0 42px #5c7aea, 0 0 82px #5c7aea, 0 0 92px #5c7aea, 0 0 102px #5c7aea,
+    0 0 151px #5c7aea;
+  /* text-shadow: [x-offset] [y-offset] [blur-radius] [color]; */
+  border: 0.2rem solid #fff;
+  border-radius: 2rem;
+  padding: 0.4em;
+  box-shadow: 0 0 0.1rem #fff, 0 0 0.1rem #fff, 0 0 1rem #14279b,
+    0 0 0.8rem #14279b, 0 0 2.8rem #14279b, inset 0 0 1.3rem #14279b;
 }
 
 .title {
@@ -33,14 +50,6 @@ body {
 #start {
   margin-left: 45%;
   padding: 10px;
-}
-
-.timer {
-  margin: auto;
-  width: 3%;
-  border: solid 4px rgb(67, 38, 71);
-  background-color: rgb(222, 222, 223);
-  font-size: xxx-large;
 }
 
 .intro {
