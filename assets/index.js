@@ -11,6 +11,8 @@ let secondsLeft = 60;
 let timeInterval;
 let currentIndex;
 let score;
+const sfxRight = new Audio("assets/sfx/correct.wav");
+const sfxWrong = new Audio("assets/sfx/incorrect.wav");
 
 
 
@@ -71,6 +73,7 @@ function loadEasyQuestions(current) {
                 correctInfo.textContent = 'Correct'
                 correctInfo.setAttribute('class', 'correctInfo')
                 insight.appendChild(correctInfo)
+                sfxRight.play()
                 currentIndex++
                 loadEasyQuestions(currentIndex)
 
@@ -82,6 +85,7 @@ function loadEasyQuestions(current) {
                 incorrectInfo.textContent = 'Incorrect'
                 incorrectInfo.setAttribute('class', 'incorrectInfo')
                 insight.appendChild(incorrectInfo)
+                sfxWrong.play()
                 currentIndex++
                 loadEasyQuestions(currentIndex)
             }
@@ -106,13 +110,25 @@ function loadHardQuestions(current) {
             console.log('corrrect', correct)
             console.log('chosen', chosen)
             if (correct === chosen) {
+                insight.innerHTML = ''
                 btnGrid.innerHTML = ''
                 questionEl.innerHTML = ''
+                const correctInfo = document.createElement('h1')
+                correctInfo.textContent = 'Correct'
+                correctInfo.setAttribute('class', 'correctInfo')
+                insight.appendChild(correctInfo)
+                sfxRight.play()
                 currentIndex++
                 loadHardQuestions(currentIndex)
             } else {
+                insight.innerHTML = ''
                 btnGrid.innerHTML = ''
                 questionEl.innerHTML = ''
+                const incorrectInfo = document.createElement('h1')
+                incorrectInfo.textContent = 'Incorrect'
+                incorrectInfo.setAttribute('class', 'incorrectInfo')
+                insight.appendChild(incorrectInfo)
+                sfxWrong.play()
                 currentIndex++
                 loadHardQuestions(currentIndex)
             }
