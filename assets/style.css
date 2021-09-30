@@ -26,11 +26,6 @@ body {
   -webkit-text-stroke-color: rgb(255, 255, 255);
   box-sizing: border-box;
   text-align: center;
-  background: linear-gradient(
-    to bottom right,
-    rgb(37, 37, 63),
-    rgb(100, 98, 98)
-  );
 }
 
 .container {
@@ -74,8 +69,11 @@ body {
 }
 
 .intro {
-  font-size: x-large;
-  color: rgb(190, 189, 189);
+  text-align: center;
+  font-size: xx-large;
+  font-weight: bolder;
+  line-height: 3rem;
+  color: white;
 }
 
 .hide {
