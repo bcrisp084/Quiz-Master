@@ -1,4 +1,5 @@
-const startBtn = document.querySelector('#start')
+const easyBtn = document.querySelector('#easy')
+const hardBtn = document.querySelector('#hard')
 const questionContainer = document.querySelector('.question-container')
 const startContainer = document.querySelector('.start-container')
 const enterInitials = document.querySelector('.enterInitials')
@@ -11,7 +12,8 @@ let score;
 
 
 
-startBtn.addEventListener("click", startGame)
+easyBtn.addEventListener("click", startGame)
+hardBtn.addEventListener('click', startGame)
 
 function startGame() {
     startBtn.classList.add('hide');

@@ -15,6 +15,12 @@
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
       crossorigin="anonymous"
     ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
@@ -29,12 +35,15 @@
 
       <div class="start-container">
         <p class="intro">
-          Welcome to Quiz Time. Below you will find 2 buttons. One for the easy
-          quiz and one for the hard one. It's time to put your knowledge to the
-          test and see how well you can do. Do your best to get a high score and
-          good luck.
+          Welcome to Quiz Time. Below you will find two buttons. One for the
+          easy quiz and one for the hard one. It's time to put your knowledge to
+          the test and see how well you can do. Do your best to get a high score
+          and good luck.
         </p>
-        <button id="start">START</button>
+        <div class="game-btns">
+          <button id="hard">Hard</button>
+          <button id="easy">Easy</button>
+        </div>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
