@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(0, 0, 0);
+  background: #17141d;
 }
 .header,
 .timer {
@@ -34,17 +34,14 @@ body {
 }
 
 .container {
+  display: flex;
   margin: auto;
-  padding: 10px;
-  height: 300px;
   width: 50%;
   margin-top: 10%;
-  border: solid 5px rgb(67, 38, 71);
-  background: linear-gradient(
-    to bottom right,
-    rgb(246, 175, 116),
-    rgb(152, 197, 218)
-  );
+  border-radius: 16px;
+  box-shadow: -1rem 0 3rem;
+  background: #17141d;
+  padding: 10px;
 }
 
 #start {
@@ -54,8 +51,15 @@ body {
 
 .intro {
   font-size: x-large;
+  color: white;
 }
 
 .hide {
   display: none;
+}
+
+.question {
+  color: white;
+  text-align: center;
+  font-size: x;
 }
