@@ -42,6 +42,7 @@ body {
   box-shadow: -1rem 0 3rem;
   background: #17141d;
   padding: 10px;
+  justify-content: center;
 }
 
 .game-btns {
@@ -53,7 +54,7 @@ body {
 #hard {
   cursor: pointer;
   border: solid 2px black;
-  background-color: #ff0000;
+  background-color: #db0707;
   border-radius: 15px;
   font-size: xx-large;
   font-family: "Oswald", sans-serif;
@@ -65,7 +66,7 @@ body {
   cursor: pointer;
   border: solid 2px black;
   font-family: "Oswald", sans-serif;
-  background-color: #54e346;
+  background-color: #3bad31;
   border-radius: 15px;
   font-size: xx-large;
   width: fit-content;
@@ -74,7 +75,7 @@ body {
 
 .intro {
   font-size: x-large;
-  color: white;
+  color: rgb(190, 189, 189);
 }
 
 .hide {
@@ -83,6 +84,37 @@ body {
 
 .question {
   color: white;
+  font-size: xx-large;
+  font-family: serif;
+  font-weight: bold;
+}
+
+#answer-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 50%;
+}
+
+#answer-button {
+  border-radius: 15px;
+  width: 70%;
   text-align: center;
-  font-size: x;
+  background-color: #033fff;
+  color: white;
+  margin-top: 15px;
+  font-size: x-large;
+  font-weight: bold;
+  border: solid;
+}
+
+.correctInfo {
+  color: green;
+  text-align: center;
+}
+
+.incorrectInfo {
+  color: red;
+  text-align: center;
 }
