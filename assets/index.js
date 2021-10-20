@@ -150,10 +150,8 @@ function loadHardQuestions() {
 
 function gameOver() {
     clearInterval(timerInterval)
-    const over = confirm('The game has concluded and here\'s how you did. You scored: ' + score + ' points')
-    if (over) {
-        window.location.href = 'index.html'
-    }
+    alert('The game has concluded and here\'s how you did. You scored: ' + score + ' points')
+    window.location.href = 'index.html'
 }
 
 
