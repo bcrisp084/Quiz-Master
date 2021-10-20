@@ -54,11 +54,11 @@ function startTimer() {
 }
 
 function loadEasyQuestions() {
+    scoreCount.textContent = `Score: ${score}`
     if (currentIndex >= easyQuestions.length) {
         gameOver()
         return
     }
-    scoreCount.textContent = `Score: ${score}`
     const currentQuestion = easyQuestions[currentIndex].question;
     const questionEl = document.querySelector('.question')
     questionEl.innerHTML = currentQuestion
@@ -90,7 +90,7 @@ function loadEasyQuestions() {
                 loadEasyQuestions(currentIndex)
             }
             if (correct !== chosen && secondsLeft > 0) {
-                secondsLeft = secondsLeft - 10
+                secondsLeft = secondsLeft - 5
 
             }
         })
@@ -99,11 +99,11 @@ function loadEasyQuestions() {
 }
 
 function loadHardQuestions() {
+    scoreCount.textContent = `Score: ${score}`
     if (currentIndex >= hardQuestions.length) {
         gameOver()
         return
     }
-    scoreCount.textContent = `Score: ${score}`
     const currentQuestion = hardQuestions[currentIndex].question;
     const questionEl = document.querySelector('.question')
     questionEl.innerHTML = currentQuestion
@@ -135,7 +135,7 @@ function loadHardQuestions() {
                 loadHardQuestions(currentIndex)
             }
             if (correct !== chosen && secondsLeft > 0) {
-                secondsLeft = secondsLeft - 10
+                secondsLeft = secondsLeft - 5
 
             }
         })
@@ -150,7 +150,10 @@ function loadHardQuestions() {
 
 function gameOver() {
     clearInterval(timerInterval)
-
+    const over = confirm('The game has concluded and here\'s how you did. You scored: ' + score + ' points')
+    if (over) {
+        window.location.href = 'index.html'
+    }
 }
 
 
