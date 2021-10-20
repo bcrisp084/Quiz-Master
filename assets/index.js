@@ -54,7 +54,7 @@ function startTimer() {
 }
 
 function loadEasyQuestions() {
-    if (currentIndex > easyQuestions.length) {
+    if (currentIndex >= easyQuestions.length) {
         gameOver()
         return
     }
@@ -89,13 +89,17 @@ function loadEasyQuestions() {
                 currentIndex++
                 loadEasyQuestions(currentIndex)
             }
+            if (correct !== chosen && secondsLeft > 0) {
+                secondsLeft = secondsLeft - 10
+
+            }
         })
         btnGrid.appendChild(button)
     }
 }
 
 function loadHardQuestions() {
-    if (currentIndex > hardQuestions.length) {
+    if (currentIndex >= hardQuestions.length) {
         gameOver()
         return
     }
@@ -116,7 +120,6 @@ function loadHardQuestions() {
             console.log('chosen', chosen)
             if (correct === chosen) {
                 score++
-
                 insight.innerHTML = ''
                 btnGrid.innerHTML = ''
                 questionEl.innerHTML = ''
@@ -131,6 +134,10 @@ function loadHardQuestions() {
                 currentIndex++
                 loadHardQuestions(currentIndex)
             }
+            if (correct !== chosen && secondsLeft > 0) {
+                secondsLeft = secondsLeft - 10
+
+            }
         })
         btnGrid.appendChild(button)
     }
@@ -143,16 +150,7 @@ function loadHardQuestions() {
 
 function gameOver() {
     clearInterval(timerInterval)
-    secondsLeft = 0;
-    questionContainer.classList.add('hide')
-    // window.localStorage.setItem("score", JSON.stringify(score))
-    const gameEnded = confirm("Game Over. Your score is " + score)
-    if (gameEnded) {
-        startContainer.classList.remove("hide")
-        startBtn.classList.remove("hide")
-        timer.textContent = "60";
-        secondsLeft = 60;
-    }
+
 }
 
 
