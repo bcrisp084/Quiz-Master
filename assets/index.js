@@ -7,10 +7,11 @@ const timer = document.querySelector(".timer")
 const header = document.querySelector('.header')
 const questionEl = document.querySelector('.question')
 const insight = document.querySelector('.insight')
+const scoreCount = document.querySelector('.scoreCount')
 let secondsLeft = 60;
-let timeInterval;
+let timerInterval;
 let currentIndex;
-let score;
+let score = 0;
 const sfxRight = new Audio("assets/sfx/correct.wav");
 const sfxWrong = new Audio("assets/sfx/incorrect.wav");
 
@@ -22,6 +23,7 @@ hardBtn.addEventListener('click', hardGame)
 function easyGame() {
     startContainer.classList.add('hide')
     questionContainer.classList.remove('hide');
+    scoreCount.classList.remove('hide')
     header.classList.add('hide')
     timer.classList.remove('hide')
     currentIndex = 0;
@@ -32,6 +34,7 @@ function easyGame() {
 function hardGame() {
     startContainer.classList.add('hide')
     questionContainer.classList.remove('hide');
+    scoreCount.classList.remove('hide')
     header.classList.add('hide')
     timer.classList.remove('hide')
     currentIndex = 0;
@@ -50,7 +53,12 @@ function startTimer() {
     }, 1000);
 }
 
-function loadEasyQuestions(current) {
+function loadEasyQuestions() {
+    if (currentIndex > easyQuestions.length) {
+        gameOver()
+        return
+    }
+    scoreCount.textContent = `Score: ${score}`
     const currentQuestion = easyQuestions[currentIndex].question;
     const questionEl = document.querySelector('.question')
     questionEl.innerHTML = currentQuestion
@@ -66,25 +74,17 @@ function loadEasyQuestions(current) {
             console.log('corrrect', correct)
             console.log('chosen', chosen)
             if (correct === chosen) {
+                score++
                 insight.innerHTML = ''
                 btnGrid.innerHTML = ''
                 questionEl.innerHTML = ''
-                const correctInfo = document.createElement('h1')
-                correctInfo.textContent = 'Correct'
-                correctInfo.setAttribute('class', 'correctInfo')
-                insight.appendChild(correctInfo)
                 sfxRight.play()
                 currentIndex++
                 loadEasyQuestions(currentIndex)
-
             } else {
                 insight.innerHTML = ''
                 btnGrid.innerHTML = ''
                 questionEl.innerHTML = ''
-                const incorrectInfo = document.createElement('h1')
-                incorrectInfo.textContent = 'Incorrect'
-                incorrectInfo.setAttribute('class', 'incorrectInfo')
-                insight.appendChild(incorrectInfo)
                 sfxWrong.play()
                 currentIndex++
                 loadEasyQuestions(currentIndex)
@@ -94,7 +94,12 @@ function loadEasyQuestions(current) {
     }
 }
 
-function loadHardQuestions(current) {
+function loadHardQuestions() {
+    if (currentIndex > hardQuestions.length) {
+        gameOver()
+        return
+    }
+    scoreCount.textContent = `Score: ${score}`
     const currentQuestion = hardQuestions[currentIndex].question;
     const questionEl = document.querySelector('.question')
     questionEl.innerHTML = currentQuestion
@@ -110,13 +115,11 @@ function loadHardQuestions(current) {
             console.log('corrrect', correct)
             console.log('chosen', chosen)
             if (correct === chosen) {
+                score++
+
                 insight.innerHTML = ''
                 btnGrid.innerHTML = ''
                 questionEl.innerHTML = ''
-                const correctInfo = document.createElement('h1')
-                correctInfo.textContent = 'Correct'
-                correctInfo.setAttribute('class', 'correctInfo')
-                insight.appendChild(correctInfo)
                 sfxRight.play()
                 currentIndex++
                 loadHardQuestions(currentIndex)
@@ -124,10 +127,6 @@ function loadHardQuestions(current) {
                 insight.innerHTML = ''
                 btnGrid.innerHTML = ''
                 questionEl.innerHTML = ''
-                const incorrectInfo = document.createElement('h1')
-                incorrectInfo.textContent = 'Incorrect'
-                incorrectInfo.setAttribute('class', 'incorrectInfo')
-                insight.appendChild(incorrectInfo)
                 sfxWrong.play()
                 currentIndex++
                 loadHardQuestions(currentIndex)
@@ -143,21 +142,19 @@ function loadHardQuestions(current) {
 
 
 function gameOver() {
-    if (currentIndex > quizQuestion.length) {
-        clearInterval(timerInterval)
-        score = timer.textContent;
-        secondsLeft = 0;
-        questionContainer.classList.add('hide')
-        window.localStorage.setItem("score", JSON.stringify(score))
-        const gameEnded = confirm("Game Over. Your score is " + score)
-        if (gameEnded) {
-            startContainer.classList.remove("hide")
-            startBtn.classList.remove("hide")
-            timer.textContent = "60";
-            secondsLeft = 60;
-        }
+    clearInterval(timerInterval)
+    secondsLeft = 0;
+    questionContainer.classList.add('hide')
+    // window.localStorage.setItem("score", JSON.stringify(score))
+    const gameEnded = confirm("Game Over. Your score is " + score)
+    if (gameEnded) {
+        startContainer.classList.remove("hide")
+        startBtn.classList.remove("hide")
+        timer.textContent = "60";
+        secondsLeft = 60;
     }
 }
+
 
 const easyQuestions = [
     {
