@@ -124,3 +124,8 @@ body {
   color: red;
   text-align: center;
 }
+
+.card-title {
+  color: white;
+  font-size: 3rem;
+}
