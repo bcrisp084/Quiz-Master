@@ -129,3 +129,21 @@ body {
   color: white;
   font-size: 3rem;
 }
+
+.btns {
+  display: grid;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+button {
+  border-radius: 15px;
+  width: fit-content;
+  text-align: center;
+  background-color: #033fff;
+  color: white;
+  margin-top: 15px;
+  font-size: x-large;
+  font-weight: bold;
+  border: solid;
+}
