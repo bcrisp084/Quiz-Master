@@ -152,7 +152,8 @@ body {
 
 button.home,
 button.clear,
-button.highscore {
+button.highscore,
+button.submit {
   cursor: pointer;
   border-radius: 15px;
   width: fit-content;
