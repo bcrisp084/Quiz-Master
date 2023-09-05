@@ -139,7 +139,7 @@ function loadHardQuestions() {
 
 function gameOver() {
   clearInterval(timerInterval);
-  window.location.href = "Highscore.html";
+  window.location.href = `Highscore.html?score=${score}`;
 }
 
 const easyQuestions = [
