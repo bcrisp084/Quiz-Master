@@ -8,6 +8,7 @@ const header = document.querySelector(".header");
 const questionEl = document.querySelector(".question");
 const insight = document.querySelector(".insight");
 const scoreCount = document.querySelector(".scoreCount");
+const highscore = document.querySelector(".highscore");
 let secondsLeft = 60;
 let timerInterval;
 let currentIndex;
@@ -19,6 +20,7 @@ easyBtn.addEventListener("click", easyGame);
 hardBtn.addEventListener("click", hardGame);
 
 function easyGame() {
+  highscore.classList.add("hide");
   startContainer.classList.add("hide");
   questionContainer.classList.remove("hide");
   scoreCount.classList.remove("hide");
@@ -69,8 +71,6 @@ function loadEasyQuestions() {
     button.addEventListener("click", function (event) {
       const correct = easyQuestions[currentIndex].correctAnswer;
       const chosen = button.getAttribute("data-answer");
-      console.log("corrrect", correct);
-      console.log("chosen", chosen);
       if (correct === chosen) {
         score++;
         insight.innerHTML = "";
@@ -113,8 +113,6 @@ function loadHardQuestions() {
     button.addEventListener("click", function (event) {
       const correct = hardQuestions[currentIndex].correctAnswer;
       const chosen = button.getAttribute("data-answer");
-      console.log("corrrect", correct);
-      console.log("chosen", chosen);
       if (correct === chosen) {
         score++;
         insight.innerHTML = "";
@@ -142,11 +140,6 @@ function loadHardQuestions() {
 function gameOver() {
   clearInterval(timerInterval);
   window.location.href = "Highscore.html";
-  alert(
-    "The game has concluded and here's how you did. You scored: " +
-      score +
-      " points"
-  );
 }
 
 const easyQuestions = [
